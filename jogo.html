@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão EPI: Segurança em Jogo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" href="css/img/icon.png">
+</head>
+
+<body>
+<!--------------------------------------------------------------------------------------->
+    <div class="game-container">
+        <div class="game-header">
+
+            <!--novo menu-->
+            <div id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+<!--------------------------------------------------------------------------------------->
+            <h1>🎮 MISSÃO EPI 🎮</h1>
+            <div class="game-stats">
+                <div class="stat">❤️ Vidas: <span id="lives"></span></div>
+                <div class="stat">⭐ Pontos: <span id="score">0</span></div>
+                <div class="stat">📊 Fase: <span id="level">1</span></div>
+            </div>
+        </div>
+
+        <!-- Tela de Menu -->
+        <div class="menu-screen animate__fadeOutUp" id="menuScreen">
+
+            <h2>⚡ SEGURANÇA EM JOGO ⚡</h2>
+            <div style="color: #fff; font-size: 13.5px; margin-bottom: 45px; line-height: 1.5;">
+                Aprenda sobre segurança do trabalho
+                selecionando os EPIs corretos!
+            </div>
+            <div class="usuario">
+                <input type="text" id="usuario" placeholder="Insira seu usuário">
+                <br>
+                <input type="password" id="senha" placeholder="Insira sua senha">
+            </div>
+            <div>
+                <button class="menu-button" onclick="handleLogin()">ENTRAR</button>
+                <button class="menu-button" onclick="handleRegister()">CADASTRAR</button>
+            </div>
+        </div>
+
+
+        <div class="menu-screen" id="rankingScreen" style="display: none; padding: 20px;">
+            <h2>🏆 RANKING GERAL 🏆</h2>
+            <div id="rankingList"
+                style="color: #fff; text-align: left; max-width: 400px; margin: 20px auto; font-size: 12px; line-height: 2;">
+            </div>
+            <button class="voltar-menu" onclick="showMenu()">VOLTAR</button>
+        </div>
+
+        <div class="intro-screen" id="introScreen">
+            <video id="introVideo" muted playsinline>
+                <source src="video/introvideo2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Tela de Jogo -->
+        <div class="game-screen" id="gameScreen">
+            <div class="btns"> 
+                <button class="Reiniciar-menu" onclick="showMenu()">VOLTAR</button>
+            </div>
+
+            <div class="challenge-area">
+                <div class="challenge-image">
+                    <video id="challengeImage" autoplay loop muted playsinline
+                        style="max-height: 100%; max-width: 100%; object-fit: cover;">
+                        <source src="img/pergunta1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="challenge-text" id="challengeText">
+                    Você precisa substituir um disjuntor neste painel. Quais EPIs são essenciais?
+                </div>
+            </div>
+
+            <div class="epi-selection">
+                <div class="epi-cards" id="epiCards">
+                    <!-- Cards serão inseridos via JavaScript -->
+                </div>
+                <div class="action-buttons">
+                    <button class="confirm-button" id="confirmButton" onclick="checkAnswer()">
+                        CONFIRMAR SELEÇÃO
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------------------------------------------------------------------->
+    <!--novo menu-->
+    <div class="side-menu" id="sideMenu">
+        <a href="#" onclick="showInstructions()">INSTRUÇÕES</a>
+        <a href="#" onclick="showRanking()">RANKING</a>
+        <div class="volume-control">
+            <label for="volumeRange">VOLUME</label>
+            <input type="range" id="volumeRange" min="0" max="100" value="100">
+        </div>
+        <a href="#" id="backToMenuBtn" onclick="showMenuFromSideMenu()">VOLTAR</a>
+    </div>
+
+    <!---------------------------------------------------------------------------------------->
+
+    <!-- Overlay de Resultado -->
+    <div class="result-overlay" id="resultOverlay">
+        <div id="resultContent"></div>
+    </div>
+
+    <!-- 🎵 Música de Fundo -->
+    <audio id="bgMusic" loop autoplay>
+        <source src="musica/videoplayback.m4a" type="audio/mpeg">
+    </audio>
+
+
+    <script src="js/jogo.js"></script>
+</body>
+
+</html>
